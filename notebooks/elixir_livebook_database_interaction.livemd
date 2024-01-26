@@ -39,7 +39,7 @@ In the next step, before anything else, we need to establish a connection to the
 
 This is where secure shell (SSH) comes in, and we will connect to the production server through SSH, using its port forwarding feature. MySQL servers commonly use port `3306` and this is also the case with our server.
 
-<!-- livebook:{"break_markdown":true} -->
+## SSH Tunneling
 
 Hence, before we can connect to MySQL, we need to set up the SSH tunnel.
 
@@ -78,10 +78,14 @@ ssh -L 3306:127.0.0.1:3306 <db_username>@<host_address>`
   )
 ```
 
+```elixir
+:ssh.close(ssh_conn)
+```
+
 <!-- livebook:{"output":true} -->
 
 ```
-{:ok, 3306}
+:ok
 ```
 
 <!-- livebook:{"attrs":"eyJkYXRhYmFzZSI6ImNsYXNzaWNtb2RlbHMiLCJob3N0bmFtZSI6ImxvY2FsaG9zdCIsInBhc3N3b3JkX3NlY3JldCI6Ik1ZU1FMX1BXIiwicG9ydCI6MzMwNiwidHlwZSI6Im15c3FsIiwidXNlX2lwdjYiOmZhbHNlLCJ1c2Vfc3NsIjpmYWxzZSwidXNlcm5hbWUiOiJyb290IiwidmFyaWFibGUiOiJzYW1wbGVfZGIifQ","chunks":null,"kind":"Elixir.KinoDB.ConnectionCell","livebook_object":"smart_cell"} -->
